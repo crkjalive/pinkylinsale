@@ -1,0 +1,70 @@
+.gridSales{
+  display: grid;
+  grid-template-columns: 5% 8% 20% 10% 10% 10% 10% 15% 5% 5%;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+.salesDataDate{
+  background-color: var(--colorBlanco);
+  display: grid;
+  grid-template-columns: auto;
+  margin: 0 auto;
+  width: 100%;
+}
+.salesDataDate .titles_container{
+  text-align: center;
+}
+.salesDataDate .titles_container .title{
+  padding: .5em;
+  border: 1px solid var(--colorGris);
+  background-color: var(--colorAzul);
+  color: var(--colorBlanco);
+}
+.salesDataDate .data_container{
+  grid-template-rows: auto;
+}
+.salesDataDate .data_container .data{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-content: center ;
+  border: 1px solid var(--colorGris);
+  background-color: var(--colorBlanco);
+  color: rgb(0, 0, 0);
+}
+.salesDataDate .data_container .data .btn-delete{
+  margin: 0;
+  color: var(--colorBlanco);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--colorRojo);
+  width: 100%;
+}
+.salesDataDate .data_container .data .btn-update{
+  margin: 0;
+  color: var(--colorBlanco);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--colorAzul);
+  width: 100%;
+}
+.salesDataDate .data_container .data .img_icon{
+  padding: 0;
+  margin: 0;
+  width: 50px;
+  align-content: center;
+}
+.saleError{
+  background-color: var(--colorRojo);
+  color: var(--colorBlanco);
+  padding: .5em;
+}
+
+.ancho{
+  font-weight: 900;
+  font-size: 1.2em;
+}
