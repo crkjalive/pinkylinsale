@@ -66,9 +66,13 @@ que usamos para mostrar los datos en las vistas */
 const salesAdd = (req, res) => {
   const id_product = req.body.id_product;
   const quantity = req.body.quantity;
-  const unit_price = req.body.unit_price;
-  const total_price = unit_price * quantity;
-  const payment_method = req.body.payment_method.toUpperCase();
+  let unit_price = req.body.unit_price;
+  let total_price = unit_price * quantity;
+  let payment_method = req.body.payment_method.toUpperCase();
+  if (payment_method == 'BOLD') {
+    unit_price = Math.round(unit_price - (unit_price * 3.404) / 100)
+    total_price = unit_price * quantity;
+  }
   const registered = req.body.registered;
   const sql = `INSERT INTO sales (id_product, quantity, unit_price, total_price, payment_method, registered) 
   VALUES (${id_product}, ${quantity}, ${unit_price}, ${total_price},'${payment_method}','${registered}')`;
@@ -84,10 +88,16 @@ const salesAdd = (req, res) => {
 const salesUpdate = (req, res) => {
   const id_sale = req.params.id_sale;
   const quantity = req.body.quantity;
-  const unit_price = req.body.unit_price;
-  const payment_method = req.body.payment_method.toUpperCase();
   const registered = req.body.created;
-  const total_price = unit_price * quantity;
+  let unit_price = req.body.unit_price;
+  let payment_method = req.body.payment_method.toUpperCase();
+  let total_price = unit_price * quantity;
+
+  if (payment_method == 'BOLD') {
+    unit_price = Math.round(unit_price - (unit_price * 3.404) / 100)
+    total_price = unit_price * quantity;
+  }
+
   const sql = `UPDATE sales SET quantity=${quantity}, unit_price=${unit_price}, payment_method='${payment_method}', registered='${registered}', total_price=${total_price} 
   WHERE id_sale='${id_sale}'`;
 
