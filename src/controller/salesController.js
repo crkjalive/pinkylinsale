@@ -5,7 +5,7 @@ me trae la solicitud por get, para renderizar la vista a mostrar */
 
 const getSales = (req, res) => {
   const sql = `SELECT id_product, id_sale, quantity, unit_price, total_price, payment_method, registered, invoice, reference, description, stock, price, total, created
-  FROM sales NATURAL JOIN products ORDER BY  registered DESC, id_sale DESC, reference ASC;`;
+  FROM sales NATURAL JOIN products ORDER BY  registered DESC, id_sale DESC, reference ASC LIMIT 400;`;
   connection.query(sql, (err, result) => {
     if (err) {
       console.log("Error en la consulta: " + err);
@@ -67,12 +67,17 @@ const salesAdd = (req, res) => {
   const id_product = req.body.id_product;
   const quantity = req.body.quantity;
   let unit_price = req.body.unit_price;
-  let total_price = unit_price * quantity;
+  let total_price = 0;
   let payment_method = req.body.payment_method.toUpperCase();
+  
   if (payment_method == 'BOLD') {
-    unit_price = Math.round(unit_price - (unit_price * 3.404) / 100)
+    unit_price = Math.round(unit_price - ((unit_price * 3.404) / 100))
+    total_price = unit_price * quantity;
+  } 
+  else {
     total_price = unit_price * quantity;
   }
+
   const registered = req.body.registered;
   const sql = `INSERT INTO sales (id_product, quantity, unit_price, total_price, payment_method, registered) 
   VALUES (${id_product}, ${quantity}, ${unit_price}, ${total_price},'${payment_method}','${registered}')`;

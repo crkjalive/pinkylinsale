@@ -6,16 +6,16 @@ const footer = document.getElementById("footer_container");
 header.innerHTML = `
 <nav class="nav_container">
   <ul>
-    <a href="/"><li>🥁 Pinkylin App</li></a>
-    <a href="/sales"><li>🛒 Registros</li></a>
-    <a href="/sales/separado"><li>🎈</li></a>
-    <a href="/search" class="primario"><li>✏ REGISTRAR</li></a>
-    <a href="/sales/date"><li>🔎 Buscar</li></a>
-    <a href="/products"><li>📦 Códigos</li></a>
+    <a href="/"><li>🍷 Pinkylin</li></a>
+    <a href="/sales"><li>🛒 Registered</li></a>
+    <a href="/sales/separado"><li>🥁</li></a>
+    <a href="/search" class="primario"><li>REGISTER</li></a>
+    <a href="/sales/date"><li>🏀 Search</li></a>
+    <a href="/products"><li>🏐 Code</li></a>
     <a href="/products/stock"><li>🎱 Stock</li></a>
     <a href="/products/searchStock"><li>🚚 Add Stock</li></a>
-    <a href="/bills"><li>📊 Pagos</li></a>
-    <a href="/bills/add"><li>📠 Registrar pagos</li></a>
+    <a href="/bills"><li>📊</li></a>
+    <a href="/bills/add"><li>📠</li></a>
   </ul>
 </nav>`;
 

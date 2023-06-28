@@ -7,7 +7,7 @@ const getSearch = (req, res) => {
 const search = (req, res) => {
   const sql = `SELECT * FROM products WHERE reference=${req.body.reference} GROUP BY reference`
   connection.query(sql, (err, result) => {
-    if (err) { 
+    if (err) {
       console.log('Error al buscar: ' + err)
     }
     else {
